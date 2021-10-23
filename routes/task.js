@@ -13,8 +13,12 @@ const FILE_NAME = './data/todoList.json';
 
 // function to read from json file and Parse to object
 async function readAndParse() {
-  const data = await readFile(FILE_NAME, 'utf8');
-  return JSON.parse(data);
+  try {
+    const data = await readFile(FILE_NAME, 'utf8');
+    return JSON.parse(data);
+  } catch (e) {
+    console.error(e);
+  }
 }
 
 const options = {
